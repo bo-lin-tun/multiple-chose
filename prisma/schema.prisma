@@ -1,0 +1,35 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // or "mysql", "sqlite", etc. based on your database
+  url      = env("DATABASE_URL")
+}
+
+
+// model MediumQuestion {
+//   id     Int      @id @default(autoincrement())
+//   name   String
+//   answer String
+// solution Json
+//   option Json
+// }
+
+enum QuestionStatus {
+  EASY 
+  MEDIUM
+  DIFFICULT
+}
+
+model Question {
+  id     Int      @id @default(autoincrement())
+  name   String
+  answer String
+solution Json
+  option Json
+status   QuestionStatus
+}
+
